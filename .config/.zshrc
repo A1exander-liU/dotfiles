@@ -1,7 +1,7 @@
 # Environment Variables #
 
 # Path (Path to Go and personal scripts)
-export PATH="$PATH:/usr/local/go/bin:/home/alexl/go/bin:/home/alexl/Utils"
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/Utils"
 
 # Git Credential Manager
 export GCM_CREDENTIAL_STORE="gpg"
