@@ -1,0 +1,461 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  // Art to display next to system information
+  // Set to 'null' to not render the logo
+  //
+  "logo": {
+    "source": "~/Pictures/Personal/BlueArchivePics/Discord-Profiles/nagisa-discord-profile.jpg",
+    "padding": {
+      "top": 3,
+      "left": 2,
+      "right": 1
+    }
+  },
+  // General configs
+  "general": {},
+  // Global options for various display settings
+  //
+  // key
+  //  width: To align the keys to a certain width
+  "display": {
+    "key": {
+      "width": 16
+    },
+    "separator": "",
+    "constants": [
+      // CONSTANT {$1} - Bold, Bright Green
+      "\u001b[1;92m",
+      // CONSTANT {$2} - Bold, Bright Orange
+      "\u001b[1;93m",
+      // CONSTANT {$3} - Bold, Bright Red
+      "\u001b[1;91m",
+      // CONSTANT {$4} - Bold, Bright Magenta
+      "\u001b[1;95m",
+      // CONSTANT {$5} - Bold, Bright Blue
+      "\u001b[1;94m",
+      // CONSTANT {$6} - Secondary Text
+      "\u001b[90m",
+      // CONSTANT {$7} - Key Top UI [Length 15]
+      "╭──────────────",
+      // CONSTANT {$8} - Info Top UI [Length 59]
+      "──────────────────────────────────────────────────────────╮",
+      // CONSTANT {$9} - Key Bottom UI [Length 15]
+      "╰──────────────",
+      // CONSTANT {$10} - Info Bottom UI [Length 59]
+      "──────────────────────────────────────────────────────────╯",
+      // CONSTANT {$11} - Key Left VERTICAL BAR
+      "\u001b[90m│",
+      // CONSTANT {$12} - VERTICAL BARS AT END 65th CHARACTERS FORWARD AND BACKWARD
+      "\u001b[90m                                                          │\u001b[59D\u001b[39m",
+      // CONSTANT {$13} - Bold, Bright Cyan
+      "\u001b[1;96m"
+    ]
+  },
+  // Information to display on the side
+  // User : Tester
+  //
+  // {
+  //   "type"           -What kind of info to display
+  //   "key"            -Key text that appears before the info
+  //   "keyColor"       -Color of the key
+  //   "keyIcon"        -Icon to be displayed for the key
+  //   "keyWidth"       -How many characters to print this key
+  //   "outputColor"    -Output color of the module
+  //   "format"         -How the info is displayed
+  // }
+  //
+  // COLOR Information (fastfetch -h color)
+  // Codes for Color and Graphics Mode: https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797#colors--graphics-mode
+  // Color Codes (Regular and Bright): https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797#color-codes
+  //
+  // Modes
+  // | Code | Description |
+  // +------+-------------+
+  // |  0   | Reset all modes (colors and styles)
+  // |  1   | Bold
+  // |  2   | Dim/Faint
+  // |  3   | Italic
+  // |  4   | Underline
+  // |  5   | Blinking
+  // |  7   | Inverse/Reverse
+  // |  8   | Hidden/Invisible
+  // |  9   | Strikethough
+  //
+  // Colors
+  // |   Name   | Foregound Color | Background Color |
+  // +----------+-----------------+------------------+
+  // | Black    | 30              | 40
+  // | Red      | 31              | 41
+  // | Green    | 32              | 42
+  // | Yellow   | 33              | 43
+  // | Blue     | 34              | 44
+  // | Magenta  | 35              | 45
+  // | Cyan     | 36              | 46
+  // | White    | 37              | 47
+  // | Default  | 39              | 49
+  // | Reset    | 0               | 0
+  //
+  // Bright Colors
+  // |      Name       | Foregound Color | Background Color |
+  // +-----------------+-----------------+------------------+
+  // | Bright Black    | 90              | 100
+  // | Bright Red      | 91              | 101
+  // | Bright Green    | 92              | 102
+  // | Bright Yellow   | 93              | 103
+  // | Bright Blue     | 94              | 104
+  // | Bright Magenta  | 95              | 105
+  // | Bright Cyan     | 96              | 106
+  // | Bright White    | 97              | 107
+  //
+  // Example Usages
+  // ';' are used for separating different codes
+  // {#92}         bright green color
+  // {#1;3;91}     bold, italic, bright red colour 
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "key": "{#90}{$7}",
+      "format": "{#90}{$8}"
+    },
+    // Version Module (fastfetch -h version-format)
+    //
+    // Format Options
+    // {1}: Project name - name
+    // {2}: Version - version
+    {
+      "type": "version",
+      "key": "{$11}",
+      "format": "{$12}Info  {$6}{1} v{2}"
+    },
+    {
+      "type": "custom",
+      "key": "{#90}{$9}",
+      "format": "{#90}{$10}"
+    },
+    // "break",
+    {
+      "type": "custom",
+      "key": "{#90}{$7}",
+      "format": "{#90}{$8}"
+    },
+    // Title Module (fastfetch -h title-format)
+    //
+    // Format Options
+    // {1}: User name - user-name
+    {
+      "type": "title",
+      "key": "{$11} {$1}User",
+      "format": "{$12}{1}"
+    },
+    {
+      "type": "title",
+      "key": "{$11} {$1}Host",
+      "format": "{$12}{2}"
+    },
+    // DateTime Module
+    //
+    // Format Options (fastfetch -h datetime-format)
+    // {1}: year - year
+    // {2}: last two digits of year - year-short
+    // {3}: month - month
+    // {4}: month with leading zero - month-pretty
+    // {5}: month name - month-name
+    // {6}: month name short - month-name-short
+    // {7}: week number on year - week
+    // {8}: weekday - weekday
+    // {9}: weekday short - weekday-short
+    // {10}: day in year - day-in-year
+    // {11}: day in month - day-in-month
+    // {12}: day in week - day-in-week
+    // {13}: hour - hour
+    // {14}: hour with leading zero - hour-pretty
+    // {15}: hour 12h format - hour-12
+    // {16}: hour 12h format with leading zero - hour-12-pretty
+    // {17}: minute - minute
+    // {18}: minute with leading zero - minute-pretty
+    // {19}: second - second
+    // {20}: second with leading zero - second-pretty
+    // {21}: offset from UTC in the ISO 8601 format - offset-from-utc
+    // {22}: locale-dependent timezone name or abbreviation - timezone-name
+    {
+      "type": "datetime",
+      "key": "{$11} {$1}DateTime",
+      "format": "{$12}{6} {11}, {1}  {14}:{18}:{20}  {$6}{8} [{22}] [UTC{21}]"
+    },
+    // Weather Module (fastfetch -h weather-format)
+    //
+    // Format Options
+    // {1}: Weather result - result
+    // {
+    //   "type": "weather",
+    //   "key": "{$11} {$1}Weather",
+    //   "format": "{$12}{1}"
+    // },
+    {
+      "type": "uptime",
+      "key": "{$11} {$1}Uptime",
+      "format": "{$12}{?1} days {1}{?}{2} hours {3} mins"
+    },
+    {
+      "type": "battery",
+      "key": "{$11} {$1}Battery",
+      "format": "{$12}{10} ({4})  {$6}{5}"
+    },
+    {
+      "type": "custom",
+      "key": "{#90}{$9}",
+      "format": "{#90}{$10}"
+    },
+    {
+      "type": "custom",
+      "key": "{#90}{$7}",
+      "format": "{#90}{$8}"
+    },
+    {
+      "type": "host",
+      "key": "{$11} {$2}Machine",
+      "format": "{$12}{2} {3}"
+    },
+    // OS Module (fastfetch -h os-format)
+    //
+    // Format Options
+    // {3}: Pretty name of the OS - pretty-name
+    {
+      "type": "os",
+      "key": "{$11} {$2}OS",
+      "format": "{$12}{3}"
+    },
+    // {
+    //   "type": "packages",
+    //   "key": "{$11} {$2}Packages",
+    //   "format": "{$12}{5} (rpm), {14} (flatpak)"
+    // },
+    // Kernel Module (fastfetch -h kernel-format)
+    //
+    // Format Options
+    // {1}: Sysname - sysname
+    // {2}: Release - release
+    {
+      "type": "kernel",
+      "key": "{$11} {$2}Kernel",
+      "format": "{$12}{1}  {$6}[{2}]"
+    },
+    {
+      "type": "de",
+      "key": "{$11} {$2}Desktop",
+      "format": "{$12}{2}  {$6}[v{3}]"
+    },
+    {
+      "type": "theme",
+      "key": "{$11} {$2}Theme",
+      "format": "{$12}{2}"
+    },
+    {
+      "type": "icons",
+      "key": "{$11} {$2}Icons",
+      "format": "{$12}{2}"
+    },
+    {
+      "type": "font",
+      "key": "{$11} {$2}SystemFont",
+      "format": "{$12}{5}"
+    },
+    {
+      "type": "custom",
+      "key": "{#90}{$9}",
+      "format": "{#90}{$10}"
+    },
+    {
+      "type": "custom",
+      "key": "{#90}{$7}",
+      "format": "{#90}{$8}"
+    },
+    // CPU Module (fastfetch -h cpu-format)
+    //
+    // Format Options
+    // {1}: Name - name
+    // {2}: Vendor - vendor
+    // {3}: Physical core count - cores-physical
+    // {4}: Logical core count - cores-logical
+    // {5}: Online core count - cores-online
+    // {6}: Base frequency (formatted) - freq-base
+    // {7}: Max frequency (formatted) - freq-max
+    {
+      "type": "cpu",
+      "key": "{$11} {$3}CPU",
+      "format": "{$12}{1}  {$6}[C-{5}] [{7}]"
+    },
+    // GPU Module (fastfetch -h gpu-format)
+    //
+    // Format Options
+    // {1}: GPU vendor - vendor
+    // {2}: GPU name - name
+    // {3}: GPU driver - driver
+    // {4}: GPU temperature - temperature
+    // {5}: GPU core count - core-count
+    // {6}: GPU type - type
+    // {7}: GPU total dedicated memory - dedicated-total
+    // {8}: GPU used dedicated memory - dedicated-used
+    // {9}: GPU total shared memory - shared-total
+    // {10}: GPU used shared memory - shared-used
+    // {11}: The platform API used when detecting the GPU - platform-api
+    // {12}: Current frequency in GHz - frequency
+    {
+      "type": "gpu",
+      "driverSpecific": true,
+      "key": "{$11} {$3}GPU",
+      "format": "{$12}{1} {2}  {$6}[C-{5}] [{12}]"
+    },
+    {
+      "type": "memory",
+      "key": "{$11} {$3}Memory",
+      "format": "{$12}{1} / {2} ({3})"
+    },
+    // Disk Module (fastfetch -h disk-format)
+    //
+    // Format Options
+    // {1}: Size used - size-used
+    // {2}: Size total - size-total
+    // {3}: Size percentage num - size-percentage
+    {
+      "type": "disk",
+      "key": "{$11} {$3}Disk",
+      "format": "{$12}{1} / {2} ({3})"
+    },
+    {
+      "type": "custom",
+      "key": "{#90}{$9}",
+      "format": "{#90}{$10}"
+    },
+    {
+      "type": "custom",
+      "key": "{#90}{$7}",
+      "format": "{#90}{$8}"
+    },
+    // Terminal Module (fastfetch -h terminal-format)
+    //
+    // Format Options
+    // {5}: Terminal pretty name - pretty-name
+    // {6}: Terminal version - version
+    {
+      "type": "terminal",
+      "key": "{$11} {$4}Terminal",
+      "format": "{$12}{5}  {$6}{?6}[v{6}]{?}"
+    },
+    // Editor Module (fastfetch -h editor-format)
+    //
+    // Format Options
+    // {1}: Type (Visual / Editor) - type
+    // {2}: Name - name
+    // {3}: Exe name of real path - exe-name
+    // {4}: Full path of real path - full-path
+    // {5}: Version - version
+    {
+      "type": "editor",
+      "key": "{$11} {$4}Editor",
+      "format": "{$12}{3}  {$6}{?5}[v{5}]{?}"
+    },
+    // TerminalFont Module (fastfetch -h terminalfont-format)
+    //
+    // Format Options
+    // {2}: Terminal font name - name
+    // {3}: Terminal font size - size
+    {
+      "type": "terminalfont",
+      "key": "{$11} {$4}Font",
+      "format": "{$12}{2}  {$6}[{3}]"
+    },
+    // Shell Module (fastfetch -h shell-format)
+    //
+    // Format Options
+    // {3}: Shell base name of arg0 - exe-name
+    // {4}: Shell version - version
+    {
+      "type": "shell",
+      "key": "{$11} {$4}Shell",
+      "format": "{$12}{3}  {$6}[v{4}]"
+    },
+    {
+      "type": "custom",
+      "key": "{#90}{$9}",
+      "format": "{#90}{$10}"
+    },
+    // {
+    //   "type": "custom",
+    //   "key": "{#90}{$7}",
+    //   "format": "{#90}{$8}"
+    // },
+    // Media Module (fastfetch -h media-format)
+    //
+    // Format Options
+    // {1}: Pretty media name - combined
+    // {2}: Media name - title
+    // {3}: Artist name - artist
+    // {4}: Album name - album
+    // {5}: Status - status
+    // {
+    //   "type": "media",
+    //   "key": "{$11} {$13}Track",
+    //   "format": "{$12}{1}"
+    // },
+    // {
+    //   "type": "media",
+    //   "key": "{$11} {$13}Album",
+    //   "format": "{$12}{4}"
+    // },
+    // {
+    //   "type": "media",
+    //   "key": "{$11} {$13}Artist",
+    //   "format": "{$12}{3}"
+    // },
+    // {
+    //   "type": "media",
+    //   "key": "{$11} {$13}Status",
+    //   "format": "{$12}{5}"
+    // },
+    // {
+    //   "type": "custom",
+    //   "key": "{#90}{$9}",
+    //   "format": "{#90}{$10}"
+    // },
+    {
+      "type": "custom",
+      "key": "{#90}{$7}",
+      "format": "{#90}{$8}"
+    },
+    // LocalIP Module (fastfetch -h localip-format)
+    //
+    // {
+    //  "showIpv4"  -Display IPv4
+    //  "showIpv6"  -Display IPv6
+    // }
+    //
+    // Format Options
+    // {1}: Local IPv4 address - ipv4
+    // {2}: Local IPv6 address - ipv6
+    {
+      "type": "localip",
+      "key": "{$11} {$5}Local IPv4",
+      "showIpv4": true,
+      "showIpv6": false,
+      "format": "{$12}{4}: {1}"
+    },
+    {
+      "type": "localip",
+      "key": "{$11} {$5}Local IPv6",
+      "showIpv4": false,
+      "showIpv6": true,
+      "format": "{$12}{4}: {2}"
+    },
+    {
+      "type": "custom",
+      "key": "{#90}{$9}",
+      "format": "{#90}{$10}"
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 1
+    }
+  ]
+}
