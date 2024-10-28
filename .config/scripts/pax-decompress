@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+file="$1"
+
+if [[ -z "$file" ]]; then
+  echo "No file entered"
+  exit
+fi
+
+uncompress "$file"
+pax -r < ${file[1, -7]}.pax

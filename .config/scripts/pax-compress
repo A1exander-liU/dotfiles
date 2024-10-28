@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+file="$1"
+
+echo "$file"
+
+if [[ -z "$file" ]]; then
+  echo "Enter File Name, should be in format:"
+  echo "COMP{Course Number}-assign{Assignment #}-v{Version}"
+  echo "COMP7003-assign1-v1"
+  exit
+fi
+
+pax -w config/ data/ pcap/ report/ source/ video/ -f "$file".pax
+compress -f "$file".pax

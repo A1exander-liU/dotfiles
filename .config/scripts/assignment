@@ -1,0 +1,10 @@
+#!/bin/sh
+
+assName=$1
+
+echo "$assName"
+
+mkdir "$assName"
+
+cd "$assName"
+mkdir config data pcap report source video

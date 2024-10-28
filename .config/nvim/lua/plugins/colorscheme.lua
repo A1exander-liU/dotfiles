@@ -16,4 +16,10 @@ return {
       colorscheme = "onedark",
     },
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      theme = "onedark",
+    },
+  },
 }
