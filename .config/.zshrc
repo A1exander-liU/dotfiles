@@ -117,7 +117,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   zsh-nvm
   git
-  web-search
   zsh-autosuggestions
   zsh-syntax-highlighting
   colored-man-pages
