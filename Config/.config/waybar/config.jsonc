@@ -1,0 +1,80 @@
+{
+  // Decide if the bar is displayed in front (top) of
+  // the windows for behind (bottom) them.
+  "layer": "top",
+  "margin": 5,
+  // Size of gaps in between of the different modules.
+  "spacing": 5, // Gaps between modules (4px)
+  "reload_style_on_change": true,
+  "include": [
+    "~/.config/waybar/modules/modules.jsonc"
+  ],
+  //Modules that will be displayed on the left.
+  "modules-left": [
+    "custom/appmenu",
+    "group/media",
+    "group/taskbar"
+  ],
+  //Modules that will be displayed in the center.
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  //Modules that will be displayed on the right.
+  "modules-right": [
+    "group/settings",
+    "battery",
+    "clock",
+    "tray",
+    "custom/power"
+  ],
+  "group/settings": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/settings",
+      "pulseaudio",
+      "network",
+      "backlight"
+    ],
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+      "children-class": "drawer-child"
+    }
+  },
+  "custom/settings": {
+    "format": "<span size='x-large'></span>",
+    "tooltip-format": "Settings"
+  },
+  "group/media": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/mediatrack",
+      "custom/media-prev",
+      "custom/media-play-pause",
+      "custom/media-next"
+    ],
+    // "drawer": {
+    //   "transition-duration": 500,
+    //   "transition-left-to-right": true,
+    //   "children-class": "drawer-child"
+    // }
+  },
+  "custom/taskbar-icon": {
+    "format": "<span size='x-large'></span>",
+    "tooltip-format": "Apps"
+  },
+  "custom/left-divider": {
+    "format": "<span size='x-large'></span>"
+  },
+  "group/taskbar": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/taskbar-icon",
+      "wlr/taskbar"
+    ],
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "drawer-child"
+    }
+  }
+}

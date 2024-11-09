@@ -1,0 +1,89 @@
+* {
+  background-image: none;
+}
+
+window {
+  background-image: url("./Kivotos_Night_Blurred.png");
+  background-size: contain;
+  background-color: transparent;
+}
+
+button {
+  background-color: rgba(50, 50, 50, 1);
+  color: #ffffff;
+
+  outline-style: none;
+
+  border: none;
+  border-width: 0;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10%;
+
+  box-shadow: none;
+  text-shadow: none;
+
+  animation: gradient_f 20s ease-in infinite;
+}
+
+button:focus {
+  background-color: rgba(128, 128, 128, 0.2);
+
+  background-size: 15%;
+}
+
+button:hover {
+  background-color: rgba(64, 64, 64, 0.7);
+
+  background-size: 20%;
+
+  outline-style: none;
+
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682);
+}
+
+button:hover#lock {
+  margin: -60px 0px 0px -60px;
+  border-radius: 60px 60px 0 60px;
+}
+
+button:hover#shutdown {
+  margin: -60px -60px 0 0;
+  border-radius: 60px 60px 60px 0;
+}
+
+button:hover#reboot {
+  margin: 0 -60px -60px 0;
+  border-radius: 0 60px 60px 60px;
+}
+
+button:hover#logout {
+  margin: 0 0-60px -60px;
+  border-radius: 60px 0 60px 60px;
+}
+
+#lock {
+  background-image: image(url("./icons/lock_white.png"), url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+
+  border-radius: 60px 0 0 0;
+}
+
+#shutdown {
+  background-image: image(url("./icons/shutdown_white.png"), url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+
+  border-radius: 0 60px 0 0;
+}
+
+#reboot {
+  background-image: image(url("./icons/reboot_white.png"), url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+
+  border-radius: 0 0 60px 0;
+}
+
+#logout {
+  background-image: image(url("./icons/logout_white.png"), url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+
+  border-radius: 0 0 0 60px;
+}
