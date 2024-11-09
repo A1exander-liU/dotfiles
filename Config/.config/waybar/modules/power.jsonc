@@ -1,0 +1,8 @@
+{
+  "custom/power": {
+    "format": "<span size='x-large' rise='-3000'></span>",
+    "icon-size": 20,
+    "tooltip": false,
+    "on-click": "wlogout -b 2"
+  }
+}

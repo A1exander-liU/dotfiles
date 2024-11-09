@@ -1,0 +1,17 @@
+{
+  "backlight": {
+    "format": "{percent}%  <span size='x-large' rise='-3000'>{icon}</span>",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "Brightness: {percent}%"
+  }
+}

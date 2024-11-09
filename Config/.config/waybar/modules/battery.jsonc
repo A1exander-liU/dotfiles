@@ -1,0 +1,20 @@
+{
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% <span size='x-large' rise='-2500'>{icon}</span>",
+    "format-full": "{capacity}% <span size='x-large' rise='-2500'>{icon}</span>",
+    "format-charging": "{capacity}% 󱐋",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "network": {
+    "format-wifi": "{essid}  <span size='x-large' rise='-2000'></span>",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "tooltip-format": "Strength: {signalStrength}%",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "Disconnected  <span size='x-large' rise='-2000'>󱛅</span>",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  }
+}

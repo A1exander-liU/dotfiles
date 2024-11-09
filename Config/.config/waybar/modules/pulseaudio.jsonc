@@ -1,0 +1,13 @@
+{
+  "pulseaudio": {
+    "format": "{volume}%  <span size='x-large' rise='-3000'>{icon}</span>",
+    "icon-size": 20,
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  }
+}

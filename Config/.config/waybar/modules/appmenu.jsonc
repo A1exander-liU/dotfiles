@@ -1,0 +1,7 @@
+{
+  "custom/appmenu": {
+    "format": "<span size='x-large'>󱗼</span>",
+    "on-click": "rofi -show drun -theme default",
+    "tooltip-format": "Apps"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 20,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "Alacritty",
+      "kitty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
+  "custom/taskbar-icon": {
+    "format": "<span size='x-large'></span>",
+    "tooltip-format": "Apps"
+  },
+  "custom/left-divider": {
+    "format": "<span size='x-large'></span>"
+  },
+  "group/taskbar": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/taskbar-icon",
+      "wlr/taskbar"
+    ],
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "drawer-child"
+    }
+  }
+}

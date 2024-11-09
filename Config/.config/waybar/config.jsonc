@@ -7,7 +7,17 @@
   "spacing": 5, // Gaps between modules (4px)
   "reload_style_on_change": true,
   "include": [
-    "~/.config/waybar/modules/modules.jsonc"
+    "~/.config/waybar/modules/appmenu.jsonc",
+    "~/.config/waybar/modules/backlight.jsonc",
+    "~/.config/waybar/modules/battery.jsonc",
+    "~/.config/waybar/modules/clock.jsonc",
+    "~/.config/waybar/modules/media.jsonc",
+    "~/.config/waybar/modules/network.jsonc",
+    "~/.config/waybar/modules/power.jsonc",
+    "~/.config/waybar/modules/pulseaudio.jsonc",
+    "~/.config/waybar/modules/taskbar.jsonc",
+    "~/.config/waybar/modules/tray.jsonc",
+    "~/.config/waybar/modules/workspaces.jsonc"
   ],
   //Modules that will be displayed on the left.
   "modules-left": [
@@ -44,37 +54,5 @@
   "custom/settings": {
     "format": "<span size='x-large'></span>",
     "tooltip-format": "Settings"
-  },
-  "group/media": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/mediatrack",
-      "custom/media-prev",
-      "custom/media-play-pause",
-      "custom/media-next"
-    ],
-    // "drawer": {
-    //   "transition-duration": 500,
-    //   "transition-left-to-right": true,
-    //   "children-class": "drawer-child"
-    // }
-  },
-  "custom/taskbar-icon": {
-    "format": "<span size='x-large'></span>",
-    "tooltip-format": "Apps"
-  },
-  "custom/left-divider": {
-    "format": "<span size='x-large'></span>"
-  },
-  "group/taskbar": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/taskbar-icon",
-      "wlr/taskbar"
-    ],
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "drawer-child"
-    }
   }
 }

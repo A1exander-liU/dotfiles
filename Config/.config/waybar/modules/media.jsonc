@@ -1,0 +1,40 @@
+{
+  "custom/mediatrack": {
+    "exec": "~/.config/waybar/scripts/media-track.sh",
+    "interval": 1,
+    "max-length": 30,
+    "return-type": "json",
+    "escape": true,
+    "hide-empty-text": true
+  },
+  "custom/media-prev": {
+    "format": "<span size='x-large'>󰒮</span>",
+    "on-click": "playerctl previous",
+    "tooltip-format": "Previous"
+  },
+  "custom/media-play-pause": {
+    "exec": "~/.config/waybar/scripts/media-status.sh",
+    "interval": "once",
+    "on-click": "playerctl play-pause",
+    "return-type": "json"
+  },
+  "custom/media-next": {
+    "format": "<span size='x-large'>󰒭</span>",
+    "on-click": "playerctl next",
+    "tooltip-format": "Next"
+  },
+  "group/media": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/mediatrack",
+      "custom/media-prev",
+      "custom/media-play-pause",
+      "custom/media-next"
+    ]
+    // "drawer": {
+    //   "transition-duration": 500,
+    //   "transition-left-to-right": true,
+    //   "children-class": "drawer-child"
+    // }
+  }
+}
