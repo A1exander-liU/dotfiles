@@ -1,5 +1,11 @@
 # dotfiles
 
-Personal configuration files
+Personal configuration for Arch Linux + Hyprland.
 
-![Cover](resources/cover.png)
+![Cover](resources/screenshots/cover.png)
+
+## App Launcher
+![Cover](resources/screenshots/app_launcher.png)
+
+## Logout Menu
+![Cover](resources/screenshots/logout_menu.png)
